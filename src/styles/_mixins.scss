@@ -1,0 +1,7 @@
+@mixin column-width($width) {
+  @if $width == 1 {
+    flex-basis: 100%;
+  } @else {
+    flex-basis: calc(percentage($width) - ($grids-gutter / 2));
+  }
+}

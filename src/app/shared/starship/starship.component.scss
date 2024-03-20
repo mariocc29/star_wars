@@ -1,0 +1,103 @@
+@import 'variables';
+@import 'mixins';
+@import 'media-queries';
+
+@mixin starship-image($width) {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: $width;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  
+  .starship {
+    display: grid;
+    grid-template-columns: 1fr;
+    position: relative;
+    
+    .starship-header {
+      display: flex;
+      justify-content: space-between;
+      column-gap: $grids-gutter;
+  
+      .label {
+        flex: 1;
+        text-transform: uppercase;
+        color: $color_tertiary;
+        margin-left: -2em;
+  
+        @include md { margin-left: -2.75em; }
+        @include lg { margin-left: -3em; }
+        @include xl { margin-left: -3.5em; }
+      }
+  
+      .index {
+        flex: 2;
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+  
+        @include md { align-items: end; }
+      }
+      
+      @include sm {
+        position: absolute;
+        flex-direction: column;
+      }
+    }
+  
+    .starship-image {
+      display: flex;
+      filter: drop-shadow(4px 4px 30px rgba(0, 0, 0, 0.25));
+      
+      img { 
+        width: 100%;
+      }
+  
+      @include sm {
+        min-height: 200px;
+        justify-content: end;
+  
+        img { width: 75%; }
+      }
+
+      @include md {
+        @include starship-image(450px);
+      }
+
+      @include xl {
+        @include starship-image(500px);
+      }
+    }
+  }
+
+  .starship-footer {
+    padding: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    column-gap: $grids-gutter;
+  
+    .info {
+      display: flex;
+      justify-content: center;
+      @include column-width(0.5);
+    }
+  
+    .button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      @include column-width(0.5);
+    }
+
+    @include sm {
+      flex-direction: column;
+    }
+  }
+}
