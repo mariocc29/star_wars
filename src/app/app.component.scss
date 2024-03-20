@@ -8,53 +8,10 @@
   height: 100svh;
 
   shared-starship {
-    padding: 20px;
+    padding: 40px 20px 0 20px;
     @include md { flex-grow: 1; }
-  }
 
-  footer {
-    height: 200px;
-
-    .pilots {
-      display: flex;
-      flex-wrap: wrap;
-      
-      .label {
-        @include sm { @include column-width(1); }
-      }
-
-      .cards {
-        flex: 1;
-        
-        .pilot-card {
-          @include md {
-            display: inline-block;
-            width: 200px;
-            margin-left: calc($grids-gutter / 2);
-            margin-right: calc($grids-gutter / 2);
-
-            &:first-child { margin-left: 0 }
-            &:last-child { margin-right: 0 }
-          }
-
-          @include sm {
-            @include column-width(0.5);
-          }
-        }
-
-        @include sm {
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-          gap: $grids-gutter;
-        }
-
-        @include md {
-          overflow-y: auto;
-          white-space: nowrap;
-        }
-      }
-      
-      @include sm { flex-direction: column; }
-    }
+    @include md { padding-top: 60px; }
+    @include lg { padding-top: 80px; }
   }
 }

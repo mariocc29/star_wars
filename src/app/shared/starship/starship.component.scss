@@ -81,7 +81,7 @@ main {
     padding: 20px 0;
     display: flex;
     justify-content: space-between;
-    column-gap: $grids-gutter;
+    gap: $grids-gutter;
   
     .info {
       display: flex;
