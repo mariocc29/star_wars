@@ -1,5 +1,7 @@
 @import 'variables';
 @import 'media-queries';
+@import 'fonts';
+@import 'buttons';
 
 * {
   margin: 0;
@@ -10,4 +12,11 @@
 html, body {
   height: 100%;
   cursor: default;
+  background-color: $color_bg;
+  color: $color_primary;
+}
+
+body {
+  font-family: "proxima-nova", sans-serif;
+  font-size: 1em;
 }

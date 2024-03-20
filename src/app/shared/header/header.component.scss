@@ -1,0 +1,29 @@
+@import 'media-queries';
+
+header {
+  height: 40px;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .button {
+		float: left;
+	}
+
+  .brand {
+		padding: 20px;
+		flex: 1 0 0;
+		text-align: center;
+		
+		img {
+			width: 10em;
+
+      @include md { width: 12em; }
+      @include xl { width: 14em; }
+		}
+	}
+
+  @include md { height: 60px; }
+  @include lg { height: 80px; }
+}

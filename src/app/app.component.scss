@@ -14,13 +14,6 @@
   flex-direction: column;
   height: 100svh;
 
-  header {
-    height: 40px;
-
-    @include md { height: 60px; }
-    @include lg { height: 80px; }
-  }
-
   main {
     padding: 20px;
 
