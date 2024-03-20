@@ -5,3 +5,25 @@
     flex-basis: calc(percentage($width) - ($grids-gutter / 2));
   }
 }
+
+@mixin overlay() {
+  height: 100%;
+  left: 0;
+  top: 0;
+  width: 100%;
+  z-index: 9998;
+  background-color: $color_primary;
+  position: fixed;
+
+  &.fade-out {
+    opacity: 0;
+    transition: opacity 0.3s ease-out;
+    pointer-events: none;
+  }
+
+  &.fade-in {
+    opacity: 25%;
+    transition: opacity 0.3s ease-in;
+    pointer-events: all;
+  }
+}

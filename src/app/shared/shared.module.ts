@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './header/header.component';
 import { StarshipComponent } from './starship/starship.component';
 import { FooterComponent } from './footer/footer.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
 
 
 
@@ -10,12 +11,14 @@ import { FooterComponent } from './footer/footer.component';
   declarations: [
     HeaderComponent,
     StarshipComponent,
-    FooterComponent
+    FooterComponent,
+    SidebarComponent
   ],
   exports: [
     HeaderComponent,
     StarshipComponent,
-    FooterComponent
+    FooterComponent,
+    SidebarComponent
   ],
   imports: [
     CommonModule

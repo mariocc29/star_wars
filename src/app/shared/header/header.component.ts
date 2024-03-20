@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'shared-header',
@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent {
+  @Output() toggleSidebar = new EventEmitter<void>()
 
+  onToggleSidebar(): void {
+    this.toggleSidebar.emit();
+  }
 }

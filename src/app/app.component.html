@@ -1,7 +1,7 @@
 <section class="wrapper">
-  
-  <shared-header />
+  <shared-header (toggleSidebar)="toggleSidebar()"/>
   <shared-starship />
   <shared-footer />
-
+  
+  <shared-sidebar [show]="showSidebar" (toggleSidebar)="toggleSidebar()"/>
 </section>
