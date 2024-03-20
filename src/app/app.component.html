@@ -1,7 +1,15 @@
 <section class="wrapper">
   <shared-header (toggleSidebar)="toggleSidebar()"/>
-  <shared-starship />
+  <shared-starship (toggleModal)="toggleModal()" />
   <shared-footer />
   
-  <shared-sidebar [show]="showSidebar" (toggleSidebar)="toggleSidebar()"/>
+  <shared-sidebar 
+    [show]="showSidebar" (toggleSidebar)="toggleSidebar()"/>
+  
+  <shared-modal 
+    [show]="showModal"/>
 </section>
+
+
+<div class="overlay" 
+    [ngClass]="{'fade-out': !showOverlay, 'fade-in': showOverlay}"></div>

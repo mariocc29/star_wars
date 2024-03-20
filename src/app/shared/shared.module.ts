@@ -4,6 +4,7 @@ import { HeaderComponent } from './header/header.component';
 import { StarshipComponent } from './starship/starship.component';
 import { FooterComponent } from './footer/footer.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
+import { ModalComponent } from './modal/modal.component';
 
 
 
@@ -12,13 +13,15 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     HeaderComponent,
     StarshipComponent,
     FooterComponent,
-    SidebarComponent
+    SidebarComponent,
+    ModalComponent
   ],
   exports: [
     HeaderComponent,
     StarshipComponent,
     FooterComponent,
-    SidebarComponent
+    SidebarComponent,
+    ModalComponent
   ],
   imports: [
     CommonModule

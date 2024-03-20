@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'shared-starship',
@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrl: './starship.component.scss'
 })
 export class StarshipComponent {
+  @Output() toggleModal = new EventEmitter<void>()
 
+  onToggleModal(): void {
+    this.toggleModal.emit();
+  }
 }

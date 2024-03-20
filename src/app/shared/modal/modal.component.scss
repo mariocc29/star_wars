@@ -1,0 +1,33 @@
+@import 'variables';
+
+section {
+  display: grid;
+  grid-template-rows: 5px 10px 5px;
+  grid-template-columns: 5px 10px 5px;
+  justify-items: stretch;
+  align-items: stretch;
+  
+  div:nth-child(1) {
+    border-top: $color_secondary 1px solid;
+    border-left: $color_secondary 1px solid;
+  }
+
+  div:nth-child(3) {
+    border-top: $color_secondary 1px solid;
+    border-right: $color_secondary 1px solid;
+  }
+
+  div:nth-child(5) {
+    background-color: $color_secondary;
+  }
+
+  div:nth-child(7) {
+    border-bottom: $color_secondary 1px solid;
+    border-left: $color_secondary 1px solid;
+  }
+
+  div:nth-child(9) {
+    border-bottom: $color_secondary 1px solid;
+    border-right: $color_secondary 1px solid;
+  }
+}

@@ -1,9 +1,4 @@
 @import 'variables';
-@import 'mixins';
-
-.sidebar-overlay {
-	@include overlay();
-}
 
 .sidebar{
   position: fixed;
