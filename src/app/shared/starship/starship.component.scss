@@ -71,8 +71,12 @@ main {
         @include starship-image(450px);
       }
 
+      @include lg {
+        @include starship-image(550px);
+      }
+
       @include xl {
-        @include starship-image(500px);
+        @include starship-image(650px);
       }
     }
   }
