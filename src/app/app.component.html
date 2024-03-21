@@ -1,13 +1,14 @@
 <section class="wrapper">
   <shared-header (toggleSidebar)="toggleSidebar()"/>
   <shared-starship (toggleModal)="toggleModal()" />
-  <shared-footer />
+  <shared-footer (toggleModal)="toggleModal()"/>
   
   <shared-sidebar 
     [show]="showSidebar" (toggleSidebar)="toggleSidebar()"/>
   
   <shared-modal 
-    [show]="showModal"/>
+    [show]="showModal"
+    (toggleModal)="toggleModal()"/>
 </section>
 
 

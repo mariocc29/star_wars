@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'shared-footer',
@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrl: './footer.component.scss'
 })
 export class FooterComponent {
-
+  @Output() toggleModal = new EventEmitter<void>()
+  
+  onToggleModal(): void {
+    console.log('xxx')
+    this.toggleModal.emit();
+  }
 }

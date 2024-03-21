@@ -1,11 +1,67 @@
-<section [hidden]="show">
+<div class="modal" *ngIf="show">
+  <div class="frame-corner"></div>
   <div></div>
+  <div class="frame-corner"></div>
   <div></div>
+  <div class="frame-content" [ngClass]="{'open-frame': show}">
+    <div class="cursor" *ngIf="showCursor"></div>
+    <section class="content" *ngIf="showContent">
+      <header>
+        <h3>Han Solo</h3>
+      </header>
+      <main>
+        <div class="label title">Overview</div>
+        <div class="body">
+          <div class="image">
+            <img src="assets/characters/14.png" alt="Han Solo">
+          </div>
+          <div class="info">
+            <div class="info-card">
+              <div class="text-bold">Height</div>
+              <div>180 cm</div>
+            </div>
+
+            <div class="info-card">
+              <div class="text-bold">Mass</div>
+              <div>80 kg</div>
+            </div>
+
+            <div class="info-card">
+              <div class="text-bold">Hair Color</div>
+              <div>Brown</div>
+            </div>
+
+            <div class="info-card">
+              <div class="text-bold">Skin Color</div>
+              <div>Fair</div>
+            </div>
+
+            <div class="info-card">
+              <div class="text-bold">Birth Year</div>
+              <div>29BBY</div>
+            </div>
+
+            <div class="info-card">
+              <div class="text-bold">Gender</div>
+              <div>Male</div>
+            </div>
+
+            <div class="info-card">
+              <div class="text-bold">Homeworld</div>
+              <div>Corellia</div>
+            </div>
+          </div>
+        </div>
+        <div class="footer">
+          <button class="btn btn-outline btn-reverse" (click)="onToggleModal()">
+            Close
+          </button>
+        </div>
+      </main>
+    </section>
+  </div>
   <div></div>
+  <div class="frame-corner"></div>
   <div></div>
-  <div></div>
-  <div></div>
-  <div></div>
-  <div></div>
-  <div></div>
-</section>
+  <div class="frame-corner"></div>
+</div>

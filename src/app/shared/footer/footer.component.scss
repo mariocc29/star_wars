@@ -60,7 +60,8 @@ footer {
     z-index: 1;
 
     .pilot-card {
-      
+      cursor: pointer;
+
       .card {
         display: flex;
         flex-wrap: nowrap;

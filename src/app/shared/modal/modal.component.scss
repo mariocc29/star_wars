@@ -1,33 +1,150 @@
 @import 'variables';
 
-section {
+.modal {
   display: grid;
-  grid-template-rows: 5px 10px 5px;
-  grid-template-columns: 5px 10px 5px;
+  grid-template-rows: 5px auto 5px;
+  grid-template-columns: 5px auto 5px;
   justify-items: stretch;
   align-items: stretch;
-  
-  div:nth-child(1) {
+
+  .frame-corner:nth-child(1) {
     border-top: $color_secondary 1px solid;
     border-left: $color_secondary 1px solid;
   }
 
-  div:nth-child(3) {
+  .frame-corner:nth-child(3) {
     border-top: $color_secondary 1px solid;
     border-right: $color_secondary 1px solid;
   }
 
-  div:nth-child(5) {
-    background-color: $color_secondary;
-  }
-
-  div:nth-child(7) {
+  .frame-corner:nth-child(7) {
     border-bottom: $color_secondary 1px solid;
     border-left: $color_secondary 1px solid;
   }
 
-  div:nth-child(9) {
+  .frame-corner:nth-child(9) {
     border-bottom: $color_secondary 1px solid;
     border-right: $color_secondary 1px solid;
   }
+
+  .frame-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    &.open-frame {
+      animation: open-modal 2s forwards;
+      animation-delay: 0.5s;
+    }
+
+    .cursor {
+      background-color: $color_secondary;
+      height: 10px;
+      width: 10px;
+      animation: cursor-animation 0.5s infinite;
+    }
+
+    .content {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: nowrap;
+      width: 100%;
+      height: 100%;
+      justify-content: space-between;
+
+      header {
+        display: flex;
+        justify-content: end;
+        color: $color_secondary;
+      }
+
+      main {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        row-gap: calc($grids-gutter / 2);
+        backdrop-filter: blur(30px);
+        border-radius: 5px;
+
+        .label {
+          display: flex;
+          justify-content: end;
+          color: $color_secondary;
+          border-bottom: $color_tertiary 3px solid;
+          padding: calc($grids-gutter / 2);
+        }
+
+        .body {
+          display: flex;
+
+          .image {
+            margin-top: -8em;
+            padding-right: $grids-gutter;
+
+            img {
+              width: 100%;
+            }
+          }
+
+          .info {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            row-gap: calc($grids-gutter / 2);
+
+            .info-card {
+              display: flex;
+              column-gap: calc($grids-gutter / 2);
+
+              div {
+                flex-basis: calc(50% - ($grids-gutter / 2));
+              }
+            }
+          }
+        }
+
+        .footer{
+          display: flex;
+          justify-content: center;
+          border-top: $color_tertiary 3px solid;
+          padding-top: calc($grids-gutter / 2);
+        }
+      }
+    }
+  }
+
+  @keyframes open-modal {
+    from {
+      height: 10px;
+      width: 10px;
+    }
+    
+    50% {
+      height: 10px;
+      width: 300px;
+    }
+    
+    to {
+      height: 400px;
+      width: 300px;
+    }
+  }
+
+  @keyframes cursor-animation {
+    from {
+      opacity: 1;
+    }
+
+    50% {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+
 }
