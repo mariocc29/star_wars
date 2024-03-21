@@ -29,6 +29,8 @@ describe('ModalComponent', () => {
   it('should emit toggleModal event when onToggleModal is called', () => {
     spyOn(component.toggleModal, 'emit');
     component.onToggleModal();
+    expect(component.showCursor).toBeTrue();
+    expect(component.showContent).toBeFalse();
     expect(component.toggleModal.emit).toHaveBeenCalled();
   });
 

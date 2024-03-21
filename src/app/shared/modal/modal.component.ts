@@ -25,6 +25,7 @@ export class ModalComponent {
   }
 
   onToggleModal(): void {
+    this.showCursor = true
     this.showContent = false
     this.toggleModal.emit();
   }
