@@ -9,7 +9,6 @@ export class FooterComponent {
   @Output() toggleModal = new EventEmitter<void>()
   
   onToggleModal(): void {
-    console.log('xxx')
     this.toggleModal.emit();
   }
 }

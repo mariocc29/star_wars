@@ -13,7 +13,7 @@ export class ModalComponent {
   showContent: boolean = false
 
   ngOnChanges(changes: SimpleChanges) {
-    if ( this.show == true ) {
+    if ( changes['show'].currentValue == true ) {
       setTimeout(() => {
         this.showCursor = false
       }, 1500)
