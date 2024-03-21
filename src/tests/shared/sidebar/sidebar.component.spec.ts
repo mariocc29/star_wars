@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { HeaderComponent } from './header.component';
+import { SidebarComponent } from 'src/app/shared/sidebar/sidebar.component';
 
-describe('HeaderComponent', () => {
-  let component: HeaderComponent;
-  let fixture: ComponentFixture<HeaderComponent>;
+describe('SidebarComponent', () => {
+  let component: SidebarComponent;
+  let fixture: ComponentFixture<SidebarComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ HeaderComponent ]
+      declarations: [ SidebarComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(HeaderComponent);
+    fixture = TestBed.createComponent(SidebarComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
@@ -22,9 +22,13 @@ describe('HeaderComponent', () => {
     expect(component).toBeTruthy();
   });
 
+  it('should have initial value of show set to false', () => {
+    expect(component.show).toBeFalse();
+  });
+
   it('should emit toggleSidebar event when onToggleSidebar is called', () => {
     spyOn(component.toggleSidebar, 'emit');
     component.onToggleSidebar();
     expect(component.toggleSidebar.emit).toHaveBeenCalled();
   });
-})
+});

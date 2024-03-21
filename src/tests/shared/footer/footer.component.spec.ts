@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { StarshipComponent } from './starship.component';
+import { FooterComponent } from "src/app/shared/footer/footer.component";
 
-describe('StarshipComponent', () => {
-  let component: StarshipComponent;
-  let fixture: ComponentFixture<StarshipComponent>;
+describe('FooterComponent', () => {
+  let component: FooterComponent;
+  let fixture: ComponentFixture<FooterComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ StarshipComponent ]
+      declarations: [ FooterComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(StarshipComponent);
+    fixture = TestBed.createComponent(FooterComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
@@ -27,4 +27,4 @@ describe('StarshipComponent', () => {
     component.onToggleModal();
     expect(component.toggleModal.emit).toHaveBeenCalled();
   });
-})
+});
