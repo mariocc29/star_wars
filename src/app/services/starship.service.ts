@@ -47,11 +47,22 @@ export class StarshipService {
 
     starships.forEach((item, index) => {
 
-      let id = (lastStarship) ? lastStarship.id : index
-
       let starship = new StarshipModel(
-        id + 1, 
-        item['name'])
+        ((lastStarship) ? lastStarship.id : index) + 1, 
+        item['name'],
+        item['model'],
+        item['manufacturer'],
+        item['cost_in_credits'],
+        item['length'],
+        item['max_atmosphering_speed'],
+        item['crew'],
+        item['passengers'],
+        item['cargo_capacity'],
+        item['consumables'],
+        item['hyperdrive_rating'],
+        item['mglt'],
+        item['starship_class'],
+        item['pilots'])
 
       currentData.push(starship);
     })

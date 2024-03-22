@@ -10,7 +10,7 @@ export const StarshipInterfaceMock = {
   "cargo_capacity": 100000,
   "consumables": "2 months",
   "hyperdrive_rating": 0.5,
-  "MGLT": 75,
+  "mglt": 75,
   "starship_class": "Light freighter",
   "pilots": [
     "https://swapi.dev/api/people/13/",

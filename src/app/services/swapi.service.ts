@@ -25,4 +25,8 @@ export class SwapiService {
   starships (page: number) {
     return this.http.get<SwapiInterface>(`${ this.baseUrl }/starships/?page=${page}`)
   }
+
+  pilots (page: number) {
+    return this.http.get<SwapiInterface>(`${ this.baseUrl }/people/?page=${page}`)
+  }
 }
