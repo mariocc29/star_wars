@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { EnvironmentService } from './environment.service';
+import { SwapiInterface } from '../interfaces/swapi.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +17,7 @@ export class SwapiService {
     this.baseUrl = this.environmentService.swApiUrl
   }
 
-  starships () {
-    return this.http.get(`${ this.baseUrl }/starships/`)
+  starships (page: number) {
+    return this.http.get<SwapiInterface>(`${ this.baseUrl }/starships/?page=${page}`)
   }
 }

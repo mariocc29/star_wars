@@ -6,7 +6,7 @@
   </header>
 
   <main>
-    <article class="active">Millenium Falcon</article>
-    <article>Star Destroyer</article>
+    <article *ngFor="let starship of starships">
+      {{ starship.name }}</article>
   </main>
 </section>
