@@ -4,7 +4,7 @@ import { of } from 'rxjs';
 
 import { EnvironmentService } from 'src/app/services/environment.service';
 import { SwapiService } from 'src/app/services/swapi.service';
-import { SwapiStarshipMock } from '../mocks/swapi.mock';
+import { SwapiStarshipMock } from 'src/tests/mocks/swapi.interface.mock';
 
 describe('SwapiService', () => {
   let service: SwapiService;

@@ -3,7 +3,7 @@ import { RouterModule } from '@angular/router';
 import { of, throwError } from 'rxjs';
 import { AppComponent } from 'src/app/app.component';
 import { SwapiService } from 'src/app/services/swapi.service';
-import { SwapiStarshipMock } from './mocks/swapi.mock';
+import { SwapiStarshipMock } from 'src/tests/mocks/swapi.interface.mock';
 import { StarshipService } from 'src/app/services/starship.service';
 
 describe('AppComponent', () => {

@@ -27,6 +27,10 @@ export class SidebarComponent {
     )
   }
 
+  /**
+   * Event handler for toggling the sidebar visibility.
+   * Emits the toggleSidebar event.
+   */
   onToggleSidebar(): void {
     this.toggleSidebar.emit();
   }

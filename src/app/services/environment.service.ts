@@ -13,6 +13,10 @@ export class EnvironmentService {
     this.env = environment
   }
 
+  /**
+   * Retrieves the base URL for the Star Wars API (SWAPI) from the environment configuration
+   * @returns The base URL of the SWAPI
+   */
   get swApiUrl(): string {
     return this.env.swApiUrl
   }

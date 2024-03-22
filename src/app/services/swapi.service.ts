@@ -17,6 +17,11 @@ export class SwapiService {
     this.baseUrl = this.environmentService.swApiUrl
   }
 
+  /**
+   * Retrieves starships from the SWAPI (Star Wars API) based on the provided page number
+   * @param page - The page number of starships to retrieve
+   * @returns An Observable of type SwapiInterface containing starship data
+   */
   starships (page: number) {
     return this.http.get<SwapiInterface>(`${ this.baseUrl }/starships/?page=${page}`)
   }

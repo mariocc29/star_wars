@@ -1,4 +1,4 @@
-export const StarshipMock = {
+export const StarshipInterfaceMock = {
   "name": "Millennium Falcon",
   "model": "YT-1300 light freighter",
   "manufacturer": "Corellian Engineering Corporation",
