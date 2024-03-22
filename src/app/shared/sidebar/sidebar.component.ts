@@ -19,7 +19,7 @@ export class SidebarComponent {
 
   ngOnInit(){
     this.subscription.add(
-      this.starshipService.starship$.subscribe((data: StarshipModel[]) => {
+      this.starshipService.get$().subscribe((data: StarshipModel[]) => {
         if (data.length > 0) {
           this.starships = data 
         }

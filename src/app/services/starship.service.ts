@@ -8,7 +8,6 @@ import { StarshipModel } from '../models/starship.model';
 })
 export class StarshipService {
   private starshipSubject: BehaviorSubject<StarshipModel[]> = new BehaviorSubject<StarshipModel[]>([]);
-  starship$: Observable<StarshipModel[]> = this.starshipSubject.asObservable();
   private total: number = 0;
   
   constructor() { }
@@ -19,6 +18,10 @@ export class StarshipService {
 
   get length(): number {
     return this.total;
+  }
+
+  get$(): Observable<StarshipModel[]> {
+    return this.starshipSubject.asObservable();
   }
 
   push(starships: StarshipInterface[]) {
