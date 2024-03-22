@@ -41,7 +41,7 @@ describe('AppComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  describe('fetchStarships', () => {
+  describe('#fetchStarships', () => {
     it('should fetch starships from swapiService and push them to starshipService', () => {
       expect(swapiServiceSpy.starships).toHaveBeenCalledOnceWith(1);
       expect(starshipServiceSpy.push).toHaveBeenCalledWith(SwapiStarshipMock.results);
