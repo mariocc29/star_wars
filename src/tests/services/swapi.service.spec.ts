@@ -4,7 +4,7 @@ import { of } from 'rxjs';
 
 import { EnvironmentService } from 'src/app/services/environment.service';
 import { SwapiService } from 'src/app/services/swapi.service';
-import { SwapiPilotMock, SwapiStarshipMock } from 'src/tests/mocks/swapi.interface.mock';
+import { SwapiPilotMock, SwapiPlanetMock, SwapiStarshipMock } from 'src/tests/mocks/swapi.interface.mock';
 
 describe('SwapiService', () => {
   let service: SwapiService;
@@ -17,6 +17,7 @@ describe('SwapiService', () => {
     httpClientSpy = jasmine.createSpyObj('HttpClient', ['get']);
     httpClientSpy.get.withArgs(`${environmentServiceMock.swApiUrl}/starships/?page=1`).and.returnValue(of(SwapiStarshipMock));
     httpClientSpy.get.withArgs(`${environmentServiceMock.swApiUrl}/people/?page=1`).and.returnValue(of(SwapiPilotMock));
+    httpClientSpy.get.withArgs(`${environmentServiceMock.swApiUrl}/planets/?page=1`).and.returnValue(of(SwapiPlanetMock));
     
     TestBed.configureTestingModule({
       imports: [],
@@ -51,6 +52,16 @@ describe('SwapiService', () => {
       });
   
       expect( httpClientSpy.get ).toHaveBeenCalledWith( `${environmentServiceMock.swApiUrl}/people/?page=${page}` )
+    });
+  })
+
+  describe('#planets', () => {
+    it('should fetch planets', () => {
+      service.planets(page).subscribe(data => {
+        expect(data).toEqual(SwapiPlanetMock);
+      });
+  
+      expect( httpClientSpy.get ).toHaveBeenCalledWith( `${environmentServiceMock.swApiUrl}/planets/?page=${page}` )
     });
   })
 });
