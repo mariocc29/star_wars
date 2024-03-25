@@ -36,6 +36,11 @@ export class StarshipModel {
     this.pilots = this.buildPilots( starship.pilots )
   }
 
+  /**
+   * Method that constructs PilotModel objects for pilots assigned to the starship.
+   * @param pilots List of URLs of pilots assigned to the starship.
+   * @returns List of PilotModel objects.
+   */
   private buildPilots(pilots: string[]) : PilotModel[] {
     return pilots.map(pilot => this.pilotService.findByUrl(pilot)).filter(item => !!item)
   }
