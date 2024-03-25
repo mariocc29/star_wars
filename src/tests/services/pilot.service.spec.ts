@@ -18,11 +18,11 @@ describe('PilotService', () => {
 
   it('should set pilots correctly', () => {
     expect(service.pilots.length).toEqual(1);
-    expect(service.pilots[0].name).toEqual('Han Solo');
+    expect(service.pilots[0].name).toEqual(PilotInterfaceMock.name);
   });
 
   it('should find pilot by URL', () => {
     const foundPilot = service.findByUrl(PilotInterfaceMock.url);
-    expect(foundPilot.name).toEqual('Han Solo');
+    expect(foundPilot.name).toEqual(PilotInterfaceMock.name);
   });
 });
