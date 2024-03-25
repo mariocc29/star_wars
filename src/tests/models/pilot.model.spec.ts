@@ -21,7 +21,7 @@ describe('PilotModel', () => {
     expect(pilotModel.eyeColor).toEqual(PilotInterfaceMock.eye_color)
     expect(pilotModel.birthYear).toEqual(PilotInterfaceMock.birth_year)
     expect(pilotModel.gender).toEqual(PilotInterfaceMock.gender)
-    expect(pilotModel.homeworld).toEqual(PilotInterfaceMock.homeworld)
+    expect(pilotModel.homeworldUrl).toEqual(PilotInterfaceMock.homeworld)
     expect(pilotModel.url).toEqual(PilotInterfaceMock.url)
   });
 });

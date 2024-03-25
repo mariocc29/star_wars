@@ -10,7 +10,8 @@ export class PilotModel {
   public eyeColor: string = ''
   public birthYear: string = ''
   public gender: string = ''
-  public homeworld: string = ''
+  public homeworldUrl: string = ''
+  private _homeworld: string = ''
   public url: string = ''
 
   constructor(private pilot: PilotInterface){
@@ -22,7 +23,23 @@ export class PilotModel {
     this.eyeColor = this.pilot.eye_color
     this.birthYear = this.pilot.birth_year
     this.gender = this.pilot.gender
-    this.homeworld = this.pilot.homeworld
     this.url = this.pilot.url
+    this.homeworldUrl = this.pilot.homeworld
+  }
+
+  /**
+   * Setter for the homeworld of the pilot.
+   * @param homeworld The homeworld of the pilot.
+   */
+  set homeworld(homeworld: string) {
+    this._homeworld = homeworld
+  }
+
+  /**
+   * Getter for the homeworld of the pilot.
+   * @returns The homeworld of the pilot.
+   */
+  get homeworld(): string {
+    return this._homeworld
   }
 } 

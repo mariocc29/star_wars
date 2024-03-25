@@ -47,7 +47,7 @@ describe('StarshipModel', () => {
     expect(pilot.eyeColor).toEqual(PilotInterfaceMock.eye_color)
     expect(pilot.birthYear).toEqual(PilotInterfaceMock.birth_year)
     expect(pilot.gender).toEqual(PilotInterfaceMock.gender)
-    expect(pilot.homeworld).toEqual(PilotInterfaceMock.homeworld)
+    expect(pilot.homeworldUrl).toEqual(PilotInterfaceMock.homeworld)
     expect(pilot.url).toEqual(PilotInterfaceMock.url)
   });
 });
