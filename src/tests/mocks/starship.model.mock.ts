@@ -1,36 +1,9 @@
 import { StarshipModel } from "src/app/models/starship.model";
 import { StarshipInterfaceMock } from "./starship.interface.mock";
+import { PilotService } from "src/app/services/pilot.service";
+import { PilotInterfaceMock } from "./pilot.interface.mock";
 
-const {
-  name,
-  model,
-  manufacturer,
-  cost_in_credits,
-  length,
-  max_atmosphering_speed,
-  crew,
-  passengers,
-  cargo_capacity,
-  consumables,
-  hyperdrive_rating,
-  mglt,
-  starship_class,
-  pilots
-} = StarshipInterfaceMock;
+const pilotService = new PilotService()
+pilotService.pilots = [PilotInterfaceMock]
 
-export const StartshipModelMock = new StarshipModel(
-  1,
-  name,
-  model,
-  manufacturer,
-  cost_in_credits,
-  length,
-  max_atmosphering_speed,
-  crew,
-  passengers,
-  cargo_capacity,
-  consumables,
-  hyperdrive_rating,
-  mglt,
-  starship_class,
-  pilots)
+export const StartshipModelMock = new StarshipModel(1, StarshipInterfaceMock, pilotService)

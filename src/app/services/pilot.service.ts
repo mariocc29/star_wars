@@ -1,21 +1,27 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { PilotInterface } from '../interfaces/pilot.interface';
+import { PilotModel } from '../models/pilot.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PilotService {
-  private pilotSubject: BehaviorSubject<any[]> = new BehaviorSubject<any[]>([]);
+  
+  private _pilots:PilotModel[] = []
 
   constructor() { }
 
-  get$(): Observable<any[]> {
-    return this.pilotSubject.asObservable();
+  get pilots(): PilotModel[] {
+    return this._pilots
   }
 
-  push(pilots: any) {
-    let currentData = this.pilotSubject.getValue();
-    currentData.push(...pilots)
-    this.pilotSubject.next(currentData);
+  set pilots(_pilots: PilotInterface[]){
+    _pilots.forEach(pilot => {
+      this._pilots.push( new PilotModel(pilot) )
+    })
+  }
+
+  findByUrl(url: string): PilotModel{
+    return this._pilots.filter(pilot => pilot.url == url)[0]
   }
 }

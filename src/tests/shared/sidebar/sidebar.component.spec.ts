@@ -1,23 +1,15 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { of } from 'rxjs';
-import { StarshipService } from 'src/app/services/starship.service';
 import { SidebarComponent } from 'src/app/shared/sidebar/sidebar.component';
 import { StartshipModelMock } from 'src/tests/mocks/starship.model.mock';
 
 describe('SidebarComponent', () => {
   let component: SidebarComponent;
   let fixture: ComponentFixture<SidebarComponent>;
-  let starshipServiceSpy: jasmine.SpyObj<StarshipService>;
 
   beforeEach(async () => {
-    starshipServiceSpy = jasmine.createSpyObj('StarshipService', ['get$']);
-    starshipServiceSpy.get$.and.returnValue(of([StartshipModelMock]));
-    
     await TestBed.configureTestingModule({
       declarations: [ SidebarComponent ],
-      providers: [
-        { provide: StarshipService, useValue: starshipServiceSpy }
-      ]
+      providers: []
     })
     .compileComponents();
   });
@@ -25,6 +17,7 @@ describe('SidebarComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(SidebarComponent);
     component = fixture.componentInstance;
+    component.starships = [StartshipModelMock]
     fixture.detectChanges();
   });
 
@@ -42,9 +35,8 @@ describe('SidebarComponent', () => {
     expect(component.toggleSidebar.emit).toHaveBeenCalled();
   });
 
-  it('should subscribe to StarshipService.get$ and populate starships array', () => {
-    component.ngOnInit();
-    expect(starshipServiceSpy.get$).toHaveBeenCalled();
-    expect(component.starships).toEqual([StartshipModelMock]);
-  })
+  it('should populate starships and have name property', () => {
+    expect(component.starships.length).toBeGreaterThan(0);
+    expect(component.starships[0].name).toBe('Millennium Falcon');
+  });
 });

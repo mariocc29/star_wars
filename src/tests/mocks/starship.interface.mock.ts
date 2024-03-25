@@ -13,10 +13,7 @@ export const StarshipInterfaceMock = {
   "mglt": 75,
   "starship_class": "Light freighter",
   "pilots": [
-    "https://swapi.dev/api/people/13/",
-    "https://swapi.dev/api/people/14/",
-    "https://swapi.dev/api/people/25/",
-    "https://swapi.dev/api/people/31/"
+    "https://swapi.dev/api/people/14/"
   ],
   "films": [
     "https://swapi.dev/api/films/1/",

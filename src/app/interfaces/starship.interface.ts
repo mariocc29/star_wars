@@ -12,8 +12,8 @@ export interface StarshipInterface {
   hyperdrive_rating: number,
   mglt: number,
   starship_class: string,
-  pilots: Array<string>,
-  films: Array<string>,
+  pilots: string[],
+  films: string[],
   created: string,
   edited: string,
   url: string

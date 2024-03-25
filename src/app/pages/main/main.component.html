@@ -4,7 +4,9 @@
   <shared-footer (toggleModal)="toggleModal()"/>
   
   <shared-sidebar 
-    [show]="showSidebar" (toggleSidebar)="toggleSidebar()"/>
+    [show]="showSidebar"
+    [starships]="starships"
+    (toggleSidebar)="toggleSidebar()"/>
   
   <shared-modal 
     [show]="showModal"
