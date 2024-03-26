@@ -51,7 +51,7 @@ describe('MainComponent', () => {
     expect(component.showModal).toBeFalse();
   });
 
-  fit('should subscribe to StarshipService.get$ and populate starships array', () => {
+  it('should subscribe to StarshipService.get$ and populate starships array', () => {
     fixture.whenStable().then(() => {
       expect(starshipServiceSpy.get$).toHaveBeenCalled();
       expect(component.starships).toEqual([StartshipModelMock, DefaultStartshipModelMock]);

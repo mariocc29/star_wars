@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output, SimpleChanges } from '@angular/core';
+import { ModalModel } from 'src/app/models/modal.model';
 
 @Component({
   selector: 'shared-modal',
@@ -6,6 +7,7 @@ import { Component, EventEmitter, Input, Output, SimpleChanges } from '@angular/
   styleUrl: './modal.component.scss'
 })
 export class ModalComponent {
+  @Input() content: ModalModel = new ModalModel
   @Input() show: boolean = false
   @Output() toggleModal = new EventEmitter<void>()
   

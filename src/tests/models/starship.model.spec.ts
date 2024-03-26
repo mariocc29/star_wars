@@ -31,7 +31,7 @@ describe('StarshipModel', () => {
     expect(starshipModel.cargoCapacity).toEqual(StarshipInterfaceMock.cargo_capacity)
     expect(starshipModel.consumables).toEqual(StarshipInterfaceMock.consumables)
     expect(starshipModel.hyperdriveRating).toEqual(StarshipInterfaceMock.hyperdrive_rating)
-    expect(starshipModel.mglt).toEqual(StarshipInterfaceMock.mglt)
+    expect(starshipModel.mglt).toEqual(StarshipInterfaceMock.MGLT)
     expect(starshipModel.starshipClass).toEqual(StarshipInterfaceMock.starship_class)
   });
 

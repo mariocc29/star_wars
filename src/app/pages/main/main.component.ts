@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ModalModel } from 'src/app/models/modal.model';
 import { StarshipModel } from 'src/app/models/starship.model';
 import { PilotService } from 'src/app/services/pilot.service';
 import { StarshipService } from 'src/app/services/starship.service';
@@ -15,6 +16,7 @@ export class MainComponent {
   starships: StarshipModel[] = [];
   starship: StarshipModel = new StarshipModel(this.pilotService)
   totalStarships: number = 0
+  modalContent: ModalModel = new ModalModel
   
   private defaultStarshipId: number = 5
 
@@ -41,7 +43,11 @@ export class MainComponent {
     this.showOverlay = this.showSidebar
   }
 
-  toggleModal() : void {
+  toggleModal($event?: ModalModel) : void {
+    if ($event) {
+      this.modalContent = $event
+    }
+    
     this.showModal = !this.showModal
     this.showOverlay = this.showModal
   }

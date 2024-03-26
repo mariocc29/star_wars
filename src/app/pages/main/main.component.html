@@ -4,7 +4,7 @@
   <shared-starship 
     [starship]="starship" 
     [totalStarships] = "totalStarships"
-    (toggleModal)="toggleModal()" />
+    (toggleModal)="toggleModal($event)" />
   
   <shared-footer (toggleModal)="toggleModal()"/>
   
@@ -15,6 +15,7 @@
   
   <shared-modal 
     [show]="showModal"
+    [content] = "modalContent"
     (toggleModal)="toggleModal()"/>
 </section>
 

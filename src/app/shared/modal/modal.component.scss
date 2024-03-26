@@ -54,9 +54,11 @@
       justify-content: space-between;
 
       header {
-        display: flex;
-        justify-content: end;
         color: $color_secondary;
+        
+        h3 {
+          text-align: end;
+        }
       }
 
       main {
@@ -95,12 +97,21 @@
             flex-wrap: nowrap;
             row-gap: calc($grids-gutter / 2);
 
+            &.no-image {
+              padding: 0px calc($grids-gutter / 2);
+            }
+
             .info-card {
               display: flex;
               column-gap: calc($grids-gutter / 2);
 
               div {
                 flex-basis: calc(50% - ($grids-gutter / 2));
+
+                &:last-child {
+                  display: flex;
+                  align-items: center;
+                }
               }
             }
           }

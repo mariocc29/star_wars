@@ -34,7 +34,7 @@ export class StarshipModel {
       this.cargoCapacity = this.starship.cargo_capacity
       this.consumables = this.starship.consumables
       this.hyperdriveRating = this.starship.hyperdrive_rating
-      this.mglt = this.starship.mglt
+      this.mglt = this.starship.MGLT
       this.starshipClass = this.starship.starship_class
       this.pilots = this.buildPilots( this.starship.pilots )
       this.image = `assets/starships/${this.id}.png`
@@ -50,10 +50,18 @@ export class StarshipModel {
     return pilots.map(pilot => this.pilotService.findByUrl(pilot)).filter(item => !!item)
   }
 
+  /**
+   * Getter for the active property.
+   * @returns Boolean indicating if the starship is active or not.
+   */
   get active(): boolean {
     return this._active
   }
 
+  /**
+   * Setter for the active property.
+   * @param active Boolean indicating if the starship is active or not.
+   */
   set active(active: boolean) {
     this._active = active
   }

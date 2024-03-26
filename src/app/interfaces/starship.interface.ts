@@ -10,7 +10,7 @@ export interface StarshipInterface {
   cargo_capacity: number,
   consumables: string,
   hyperdrive_rating: number,
-  mglt: number,
+  MGLT: number,
   starship_class: string,
   pilots: string[],
   films: string[],

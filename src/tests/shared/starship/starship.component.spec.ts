@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { TostringPipe } from 'src/app/pipes/tostring.pipe';
 import { StarshipComponent } from 'src/app/shared/starship/starship.component';
 
 describe('StarshipComponent', () => {
@@ -7,7 +8,8 @@ describe('StarshipComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ StarshipComponent ]
+      declarations: [ StarshipComponent ],
+      imports: [ TostringPipe ]
     })
     .compileComponents();
   });
