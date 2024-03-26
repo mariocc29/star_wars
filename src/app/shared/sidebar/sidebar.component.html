@@ -9,6 +9,6 @@
     <article 
       *ngFor="let starship of starships" 
       [ngClass]="{'active': starship.active}">
-        {{ starship.name }}</article>
+      {{ (starship.id || 0) | toString }}. {{ starship.name }}</article>
   </main>
 </section>

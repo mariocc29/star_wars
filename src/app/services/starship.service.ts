@@ -45,10 +45,11 @@ export class StarshipService {
   push(starships: StarshipInterface[]) {
     let currentData = this.starshipSubject.getValue();
     let lastStarship = currentData[currentData.length - 1];
+    let id: number = (lastStarship && lastStarship.id !== undefined) ? lastStarship.id : 0;
 
-    starships.forEach((starship, index) => {
-      let id: number = (lastStarship && lastStarship.id !== undefined) ? lastStarship.id : index;
-      currentData.push( new StarshipModel(this.pilotService, id + 1, starship) );
+    starships.forEach(starship => {
+      id++;
+      currentData.push( new StarshipModel(this.pilotService, id, starship) );
     })
 
     this.starshipSubject.next(currentData);

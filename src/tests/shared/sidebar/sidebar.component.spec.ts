@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { TostringPipe } from 'src/app/pipes/tostring.pipe';
 import { SidebarComponent } from 'src/app/shared/sidebar/sidebar.component';
 import { StartshipModelMock } from 'src/tests/mocks/starship.model.mock';
 
@@ -9,6 +10,7 @@ describe('SidebarComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ SidebarComponent ],
+      imports: [ TostringPipe ],
       providers: []
     })
     .compileComponents();
