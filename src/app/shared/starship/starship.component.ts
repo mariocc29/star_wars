@@ -32,7 +32,7 @@ export class StarshipComponent {
       { label: 'Cargo Capacity:', value: this.starship.cargoCapacity},
       { label: 'Consumables:', value: this.starship.consumables},
       { label: 'Hyperdrive Rating:', value: this.starship.hyperdriveRating},
-      { label: 'MGLT:', value: this.starship.mglt},
+      { label: 'MGLT:', value: this.starship.mglt}
     ]
 
     this.toggleModal.emit(modal);

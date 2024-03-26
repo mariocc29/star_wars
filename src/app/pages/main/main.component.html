@@ -6,7 +6,9 @@
     [totalStarships] = "totalStarships"
     (toggleModal)="toggleModal($event)" />
   
-  <shared-footer (toggleModal)="toggleModal()"/>
+  <shared-footer 
+    [pilots]="starship.pilots"
+    (toggleModal)="toggleModal($event)"/>
   
   <shared-sidebar 
     [show]="showSidebar"
@@ -18,7 +20,6 @@
     [content] = "modalContent"
     (toggleModal)="toggleModal()"/>
 </section>
-
 
 <div class="overlay" 
     [ngClass]="{'fade-out': !showOverlay, 'fade-in': showOverlay}"></div>

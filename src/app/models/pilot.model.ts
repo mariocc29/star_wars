@@ -14,6 +14,10 @@ export class PilotModel {
   private _homeworld: string = ''
   public url: string = ''
 
+  private readonly assets: string[] = [
+    '1', '4', '10', '11', '13', '14', '21', '25', '31', '34', '43'
+  ]
+
   constructor(private pilot: PilotInterface){
     this.name = this.pilot.name
     this.height = this.pilot.height
@@ -41,5 +45,25 @@ export class PilotModel {
    */
   get homeworld(): string {
     return this._homeworld
+  }
+
+  /**
+   * Retrieves the image URL for the pilot.
+   * @returns The image URL for the pilot based on their ID in the assets array.
+   *          If no ID is found or the ID is not in the assets array, a default
+   *          image URL is returned.
+   */
+  get image(): string {
+    
+    let id: string = ''
+    let urlSplit = this.url.match(/\/(\d+)\/$/)
+
+    if (urlSplit && urlSplit[1]) {
+      id = urlSplit[1]
+    }
+
+    return this.assets.includes(id) 
+            ? `./assets/characters/${id}.png`
+            : './assets/characters/not_found.svg'
   }
 } 
