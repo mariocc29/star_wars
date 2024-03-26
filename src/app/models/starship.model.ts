@@ -18,6 +18,7 @@ export class StarshipModel {
   public mglt: number = 0
   public starshipClass: string = ''
   public pilots: PilotModel[] = []
+  private _active: boolean = false
 
   constructor (public id: number, private starship: StarshipInterface, private pilotService: PilotService) {
     this.name = this.starship.name
@@ -43,6 +44,14 @@ export class StarshipModel {
    */
   private buildPilots(pilots: string[]) : PilotModel[] {
     return pilots.map(pilot => this.pilotService.findByUrl(pilot)).filter(item => !!item)
+  }
+
+  get active(): boolean {
+    return this._active
+  }
+
+  set active(active: boolean) {
+    this._active = active
   }
 
 }

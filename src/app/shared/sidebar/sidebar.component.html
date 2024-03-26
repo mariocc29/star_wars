@@ -6,7 +6,9 @@
   </header>
 
   <main>
-    <article *ngFor="let starship of starships">
-      {{ starship.name }}</article>
+    <article 
+      *ngFor="let starship of starships" 
+      [ngClass]="{'active': starship.active}">
+        {{ starship.name }}</article>
   </main>
 </section>

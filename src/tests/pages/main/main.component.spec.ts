@@ -3,7 +3,7 @@ import { of } from 'rxjs';
 import { MainComponent } from "src/app/pages/main/main.component";
 import { StarshipService } from 'src/app/services/starship.service';
 import { SharedModule } from 'src/app/shared/shared.module';
-import { StartshipModelMock } from 'src/tests/mocks/starship.model.mock';
+import { DefaultStartshipModelMock, StartshipModelMock } from 'src/tests/mocks/starship.model.mock';
 
 describe('MainComponent', () => {
   let component: MainComponent;
@@ -12,7 +12,7 @@ describe('MainComponent', () => {
 
   beforeEach(async () => {
     starshipServiceSpy = jasmine.createSpyObj('StarshipService', ['get$']);
-    starshipServiceSpy.get$.and.returnValue(of([StartshipModelMock]));
+    starshipServiceSpy.get$.and.returnValue(of([StartshipModelMock, DefaultStartshipModelMock]));
     
     await TestBed.configureTestingModule({
       declarations: [ MainComponent ],
@@ -46,9 +46,17 @@ describe('MainComponent', () => {
     expect(component.showModal).toBeFalse();
   });
 
-  it('should subscribe to StarshipService.get$ and populate starships array', () => {
-    component.ngOnInit();
-    expect(starshipServiceSpy.get$).toHaveBeenCalled();
-    expect(component.starships).toEqual([StartshipModelMock]);
+  fit('should subscribe to StarshipService.get$ and populate starships array', () => {
+    fixture.whenStable().then(() => {
+      expect(starshipServiceSpy.get$).toHaveBeenCalled();
+      expect(component.starships).toEqual([StartshipModelMock, DefaultStartshipModelMock]);
+    })
+  })
+
+  it('should set active to true for starship with defaultStarshipId', () => {
+    fixture.whenStable().then(() => {
+      expect(component.starships.find(starship => starship.id === 1)?.active).toBeFalse();
+      expect(component.starships.find(starship => starship.id === 5)?.active).toBeTrue();
+    })
   })
 })

@@ -12,13 +12,20 @@ export class MainComponent {
   showSidebar: boolean = false;
   showModal: boolean = false;
   starships: StarshipModel[] = []
+  
+  private defaultStarshipId: number = 5
 
   constructor(private starshipService: StarshipService) {}
 
   ngOnInit(){
     this.starshipService.get$().subscribe((data: StarshipModel[]) => {
       if (data.length > 0) {
-        this.starships = data 
+        this.starships = data.map(starship => {
+          if (starship.id == this.defaultStarshipId) {
+            starship.active = true
+          }
+          return starship
+        }) 
       }
     })
   }
