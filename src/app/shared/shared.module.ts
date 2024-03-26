@@ -5,6 +5,7 @@ import { StarshipComponent } from './starship/starship.component';
 import { FooterComponent } from './footer/footer.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { ModalComponent } from './modal/modal.component';
+import { TostringPipe } from '../pipes/tostring.pipe';
 
 
 
@@ -24,7 +25,8 @@ import { ModalComponent } from './modal/modal.component';
     ModalComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    TostringPipe
   ]
 })
 export class SharedModule { }

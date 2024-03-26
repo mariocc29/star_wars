@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { of } from 'rxjs';
 import { MainComponent } from "src/app/pages/main/main.component";
+import { TostringPipe } from 'src/app/pipes/tostring.pipe';
 import { StarshipService } from 'src/app/services/starship.service';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { DefaultStartshipModelMock, StartshipModelMock } from 'src/tests/mocks/starship.model.mock';
@@ -13,12 +14,16 @@ describe('MainComponent', () => {
   beforeEach(async () => {
     starshipServiceSpy = jasmine.createSpyObj('StarshipService', ['get$']);
     starshipServiceSpy.get$.and.returnValue(of([StartshipModelMock, DefaultStartshipModelMock]));
+    starshipServiceSpy.length = 1;
     
     await TestBed.configureTestingModule({
       declarations: [ MainComponent ],
-      imports: [ SharedModule ],
+      imports: [ 
+        SharedModule,
+        TostringPipe
+      ],
       providers: [
-        { provide: StarshipService, useValue: starshipServiceSpy }
+        { provide: StarshipService, useValue: starshipServiceSpy },
       ]
     })
     .compileComponents();

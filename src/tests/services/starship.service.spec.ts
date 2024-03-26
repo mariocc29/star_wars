@@ -24,7 +24,7 @@ describe('StarshipService', () => {
   });
 
   beforeEach(() => {
-    starshipMock = new StarshipModel(1, StarshipInterfaceMock, pilotServiceSpy)
+    starshipMock = new StarshipModel(pilotServiceSpy, 1, StarshipInterfaceMock)
     service.push([StarshipInterfaceMock]);
   })
   

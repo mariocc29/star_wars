@@ -18,23 +18,27 @@ export class StarshipModel {
   public mglt: number = 0
   public starshipClass: string = ''
   public pilots: PilotModel[] = []
+  public image: string = ''
   private _active: boolean = false
 
-  constructor (public id: number, private starship: StarshipInterface, private pilotService: PilotService) {
-    this.name = this.starship.name
-    this.model = this.starship.model
-    this.manufacturer = this.starship.manufacturer
-    this.costInCredits = this.starship.cost_in_credits
-    this.length = this.starship.length
-    this.maxAtmospheringSpeed = this.starship.max_atmosphering_speed
-    this.crew = this.starship.crew
-    this.passengers = this.starship.passengers
-    this.cargoCapacity = this.starship.cargo_capacity
-    this.consumables = this.starship.consumables
-    this.hyperdriveRating = this.starship.hyperdrive_rating
-    this.mglt = this.starship.mglt
-    this.starshipClass = this.starship.starship_class
-    this.pilots = this.buildPilots( starship.pilots )
+  constructor (private pilotService: PilotService, public id?: number, private starship?: StarshipInterface) {
+    if (this.starship){
+      this.name = this.starship.name
+      this.model = this.starship.model
+      this.manufacturer = this.starship.manufacturer
+      this.costInCredits = this.starship.cost_in_credits
+      this.length = this.starship.length
+      this.maxAtmospheringSpeed = this.starship.max_atmosphering_speed
+      this.crew = this.starship.crew
+      this.passengers = this.starship.passengers
+      this.cargoCapacity = this.starship.cargo_capacity
+      this.consumables = this.starship.consumables
+      this.hyperdriveRating = this.starship.hyperdrive_rating
+      this.mglt = this.starship.mglt
+      this.starshipClass = this.starship.starship_class
+      this.pilots = this.buildPilots( this.starship.pilots )
+      this.image = `assets/starships/${this.id}.png`
+    }
   }
 
   /**

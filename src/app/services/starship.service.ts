@@ -47,7 +47,8 @@ export class StarshipService {
     let lastStarship = currentData[currentData.length - 1];
 
     starships.forEach((starship, index) => {
-      currentData.push( new StarshipModel(((lastStarship) ? lastStarship.id : index) + 1, starship, this.pilotService) );
+      let id: number = (lastStarship && lastStarship.id !== undefined) ? lastStarship.id : index;
+      currentData.push( new StarshipModel(this.pilotService, id + 1, starship) );
     })
 
     this.starshipSubject.next(currentData);

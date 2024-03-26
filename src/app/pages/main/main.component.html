@@ -1,6 +1,11 @@
 <section class="wrapper">
   <shared-header (toggleSidebar)="toggleSidebar()"/>
-  <shared-starship (toggleModal)="toggleModal()" />
+  
+  <shared-starship 
+    [starship]="starship" 
+    [totalStarships] = "totalStarships"
+    (toggleModal)="toggleModal()" />
+  
   <shared-footer (toggleModal)="toggleModal()"/>
   
   <shared-sidebar 

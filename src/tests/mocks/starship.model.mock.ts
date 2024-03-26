@@ -6,5 +6,5 @@ import { PilotInterfaceMock } from "./pilot.interface.mock";
 const pilotService = new PilotService()
 pilotService.pilots = [PilotInterfaceMock]
 
-export const StartshipModelMock = new StarshipModel(1, StarshipInterfaceMock, pilotService)
-export const DefaultStartshipModelMock = new StarshipModel(5, StarshipInterfaceMock, pilotService)
+export const StartshipModelMock = new StarshipModel(pilotService, 1, StarshipInterfaceMock)
+export const DefaultStartshipModelMock = new StarshipModel(pilotService, 5, StarshipInterfaceMock)

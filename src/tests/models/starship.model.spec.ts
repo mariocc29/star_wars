@@ -12,7 +12,7 @@ describe('StarshipModel', () => {
     pilotServiceSpy = jasmine.createSpyObj('PilotService', ['findByUrl']);
     pilotServiceSpy.findByUrl.and.returnValue(PilotModelMock)
 
-    starshipModel = new StarshipModel(1, StarshipInterfaceMock, pilotServiceSpy);
+    starshipModel = new StarshipModel(pilotServiceSpy, 1, StarshipInterfaceMock);
   });
 
   it('should create an instance', () => {

@@ -2,25 +2,25 @@
   <section class="starship">
     <article class="starship-header">
       <div class="label">
-        <h1>Millennium Falcon</h1>
+        <h1>{{ starship.name }}</h1>
       </div>
       <div class="index">
-        <h2>10</h2>
-        <h3>/36</h3>
+        <h2>{{ (starship.id || 1) | toString }}</h2>
+        <h3>/{{ totalStarships | toString }}</h3>
       </div>
     </article>
     <article class="starship-image">
-      <img src="assets/starships/5.png" alt="Millennium Falcon">
+      <img [src]="starship.image" [alt]="starship.name">
     </article>
   </section>
 
   <section class="starship-footer">
     <article class="info">
       <div>
-        <div class="text-title">Millennium Falcon</div>
-        <div class="text-subtitle">YT-1300 light freighter</div>
-        <div class="text-bold">Light freighter</div>
-        <div class="text-small">Corellian Engineering Corporation</div>
+        <div class="text-title">{{starship.name}}</div>
+        <div class="text-subtitle">{{ starship.model }}</div>
+        <div class="text-bold">{{ starship.starshipClass }}</div>
+        <div class="text-small">{{ starship.manufacturer }}</div>
       </div>
     </article>
     <article class="button">
