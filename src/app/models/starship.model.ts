@@ -18,10 +18,13 @@ export class StarshipModel {
   public mglt: number = 0
   public starshipClass: string = ''
   public pilots: PilotModel[] = []
-  public image: string = ''
   private _active: boolean = false
 
-  constructor (private pilotService: PilotService, public id?: number, private starship?: StarshipInterface) {
+  private readonly assets: number[] = [
+    4, 5, 12, 15
+  ]
+
+  constructor (private pilotService: PilotService, public id: number = 0, private starship?: StarshipInterface) {
     if (this.starship){
       this.name = this.starship.name
       this.model = this.starship.model
@@ -37,7 +40,6 @@ export class StarshipModel {
       this.mglt = this.starship.MGLT
       this.starshipClass = this.starship.starship_class
       this.pilots = this.buildPilots( this.starship.pilots )
-      this.image = `assets/starships/${this.id}.png`
     }
   }
 
@@ -64,6 +66,18 @@ export class StarshipModel {
    */
   set active(active: boolean) {
     this._active = active
+  }
+
+  /**
+   * Retrieves the image URL for the starship.
+   * @returns The image URL for the starship based on their ID.
+   *          If no ID is found or the ID is not in the assets array, a default
+   *          image URL is returned.
+   */
+  get image(): string {
+    return this.assets.includes(this.id) 
+            ? `./assets/starships/${this.id}.png`
+            : './assets/starships/not_found.svg'
   }
 
 }

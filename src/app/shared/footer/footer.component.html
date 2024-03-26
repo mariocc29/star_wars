@@ -6,6 +6,17 @@
     
     <article 
       class="pilot-card"
+      *ngIf="pilots.length == 0">
+      <div class="card">
+        <div class="pilot-image">
+          <img src="./assets/characters/not_found.svg" alt="Unknown">
+        </div>
+        <div class="pilot-name text-bold">Unknown</div>
+      </div>
+    </article>
+
+    <article 
+      class="pilot-card"
       *ngFor="let pilot of pilots">
       
       <div class="card" (click)="onToggleModal(pilot)">

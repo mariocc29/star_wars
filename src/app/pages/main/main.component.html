@@ -13,7 +13,8 @@
   <shared-sidebar 
     [show]="showSidebar"
     [starships]="starships"
-    (toggleSidebar)="toggleSidebar()"/>
+    (toggleSidebar)="toggleSidebar()"
+    (goToStarship)="goToStarship($event)"/>
   
   <shared-modal 
     [show]="showModal"

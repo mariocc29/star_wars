@@ -38,11 +38,20 @@ export class MainComponent {
     })
   }
 
+  /**
+   * Toggles the visibility of the sidebar and overlay.
+   * @returns Void.
+   */
   toggleSidebar() : void {
     this.showSidebar = !this.showSidebar
     this.showOverlay = this.showSidebar
   }
 
+  /**
+   * Toggles the visibility of the modal and overlay, and sets the modal content if provided.
+   * @param $event Optional parameter representing the content of the modal.
+   * @returns Void.
+   */
   toggleModal($event?: ModalModel) : void {
     if ($event) {
       this.modalContent = $event
@@ -50,5 +59,18 @@ export class MainComponent {
     
     this.showModal = !this.showModal
     this.showOverlay = this.showModal
+  }
+
+  /**
+   * Updates the active starship and toggles the visibility of the sidebar and overlay.
+   * @param $event The new active starship.
+   * @returns Void.
+   */
+  goToStarship($event: StarshipModel): void {
+    this.starship.active = false
+    this.starship = $event
+
+    this.showSidebar = !this.showSidebar
+    this.showOverlay = this.showSidebar
   }
 }
