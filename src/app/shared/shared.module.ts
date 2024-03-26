@@ -6,6 +6,7 @@ import { FooterComponent } from './footer/footer.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { ModalComponent } from './modal/modal.component';
 import { TostringPipe } from '../pipes/tostring.pipe';
+import { LoadingComponent } from './loading/loading.component';
 
 
 
@@ -15,14 +16,16 @@ import { TostringPipe } from '../pipes/tostring.pipe';
     StarshipComponent,
     FooterComponent,
     SidebarComponent,
-    ModalComponent
+    ModalComponent,
+    LoadingComponent
   ],
   exports: [
     HeaderComponent,
     StarshipComponent,
     FooterComponent,
     SidebarComponent,
-    ModalComponent
+    ModalComponent,
+    LoadingComponent
   ],
   imports: [
     CommonModule,

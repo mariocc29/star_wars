@@ -17,6 +17,7 @@ export class MainComponent {
   starship: StarshipModel = new StarshipModel(this.pilotService)
   totalStarships: number = 0
   modalContent: ModalModel = new ModalModel
+  isLoading: boolean = true
   
   private defaultStarshipId: number = 5
 
@@ -33,7 +34,9 @@ export class MainComponent {
             this.starship = starship
           }
           return starship
-        }) 
+        })
+
+        this.isLoading = false
       }
     })
   }
